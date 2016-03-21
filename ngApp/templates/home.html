@@ -1,0 +1,28 @@
+<!-- loading screen -->
+<div ng-show="vm.isLoading">
+  <h1>Loading the cars. Please wait...</h1>
+</div>
+
+<!-- selection for car type => display -->
+<div class="well">
+  <select class="form-control" ng-model="vm.selectedMake"
+    ng-options="poop.name for poop in vm.makes"
+    ng-change="vm.getCarsFromMake()">
+  </select>
+</div>
+
+<!-- displays the cars -->
+<div class="container">
+  <!-- <div class="well" ng-repeat="vm.theCars"> -->
+    <div>
+      <ul class="row">
+        {{vm.theCars}}
+        <li ng-repeat="c in vm.cars | filter: search | orderBy: sort" class="well col col-sm-6 animated bounceInUp" style="width: 40%; height: 400ps; margin: 10px;">
+          <img src="{{c.ImageUrl}}" sty;e="width: 400ps; hieght: auto;"/>
+          <h1>{{c.ShortDescription}}</h1>
+        </li>
+      </ul>
+    <!-- </div> -->
+  </div>
+
+</div>
